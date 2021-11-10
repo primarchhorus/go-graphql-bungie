@@ -159,6 +159,8 @@ var AppType = graphql.NewObject(
     },
 )
 
+var AppList = graphql.NewList(AppType)
+
 func graphqlquery(w http.ResponseWriter, req *http.Request){
 	
 	
@@ -220,7 +222,43 @@ func main() {
 				return nil, nil
 			},
 		},
+		"applicationslist": &graphql.Field{
+			Type: AppList,
+			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+				firstparty, err := http_request("/App/FirstParty/", "GET", conf)
+				if err != nil {
+					processError(err)
+				}
+				var apps []interface{}
+				var dat map[string]interface{}
+				json.Unmarshal([]byte(firstparty), &dat)
+
+				jsonStr, err := json.Marshal(dat["Response"])
+				if err != nil {
+					fmt.Println(err)
+				}
+
+				if err := json.Unmarshal(jsonStr, &apps); err != nil {
+					fmt.Println(err)
+				}
+				// return apps, nil
+
+				var s []interface{}
+				for _, app := range apps {
+					mappedApp := app.(map[string]interface{})
+					
+					jsonString, _ := json.Marshal(mappedApp)
+					appid := Application{}
+					json.Unmarshal(jsonString, &appid)
+					s = append(s, appid)
+				}
+				return s, nil
+				
+			},
+		},
 	}
+
+	
 	rootQuery := graphql.ObjectConfig{Name: "RootQuery", Fields: fields}
 	schemaConfig := graphql.SchemaConfig{Query: graphql.NewObject(rootQuery)}
 	schema, err := graphql.NewSchema(schemaConfig)
