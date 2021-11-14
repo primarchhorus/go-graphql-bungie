@@ -17,8 +17,13 @@ func httpRequest(endpoint string,  method string) (string, error) {
 		return "", err
 	}
 
+	key, err := getApiKey()
+	if err != nil {
+		return "", err
+	}
+
 	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("X-API-Key", conf.XAPIKey)	
+	req.Header.Set("X-API-Key", key)	
 		
 	res , err := client.Do(req)
 	if err != nil {

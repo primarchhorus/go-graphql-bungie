@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/tkanos/gonfig"
+	"os"
 )
 
 func read_config() (*Configuration, error) {
@@ -11,4 +12,9 @@ func read_config() (*Configuration, error) {
         return nil, err
     }
 	return &configuration, nil
+}
+
+func getApiKey() (string, error) {
+	xApiKey := os.Getenv("X_API_KEY") 
+	return xApiKey, nil
 }
