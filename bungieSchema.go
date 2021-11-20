@@ -2,12 +2,12 @@ package main
 
 import (
 	"github.com/graphql-go/graphql"
- )
+)
 
 //
 // App Endpoint Schema
 //
-var AppType = graphql.NewObject( 
+var AppType = graphql.NewObject(
 	graphql.ObjectConfig{
 		Name: "Application",
 		Fields: graphql.Fields{
@@ -41,14 +41,14 @@ var AppType = graphql.NewObject(
 			"FirstPublished": &graphql.Field{
 				Type: graphql.DateTime,
 			},
-			"Team": &graphql.Field {
+			"Team": &graphql.Field{
 				Type: graphql.NewList(Team),
-			},        
+			},
 		},
-    },
+	},
 )
 
-var Team = graphql.NewObject( 
+var Team = graphql.NewObject(
 	graphql.ObjectConfig{
 		Name: "Team",
 		Fields: graphql.Fields{
@@ -58,14 +58,14 @@ var Team = graphql.NewObject(
 			"APIEulaVersion": &graphql.Field{
 				Type: graphql.Int,
 			},
-			"User": &graphql.Field {
-				Type: User,
-			}, 
+			"User": &graphql.Field{
+				Type: BungieUser,
+			},
 		},
 	},
 )
 
-var User = graphql.NewObject( 
+var BungieUser = graphql.NewObject(
 	graphql.ObjectConfig{
 		Name: "User",
 		Fields: graphql.Fields{
@@ -96,11 +96,10 @@ var User = graphql.NewObject(
 
 var AppList = graphql.NewList(AppType)
 
-
 //
 // User Endpoint Schema
 //
-var Memberships = graphql.NewObject( 
+var Memberships = graphql.NewObject(
 	graphql.ObjectConfig{
 		Name: "Memberships",
 		Fields: graphql.Fields{
@@ -135,7 +134,7 @@ var Memberships = graphql.NewObject(
 	},
 )
 
-var CharacterSearch = graphql.NewObject( 
+var CharacterSearch = graphql.NewObject(
 	graphql.ObjectConfig{
 		Name: "CharacterSearch",
 		Fields: graphql.Fields{
@@ -155,7 +154,7 @@ var CharacterSearch = graphql.NewObject(
 	},
 )
 
-var ChracterSearchResults = graphql.NewObject( 
+var ChracterSearchResults = graphql.NewObject(
 	graphql.ObjectConfig{
 		Name: "ChracterSearchResults",
 		Fields: graphql.Fields{
@@ -165,4 +164,3 @@ var ChracterSearchResults = graphql.NewObject(
 		},
 	},
 )
-	
