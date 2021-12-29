@@ -1,0 +1,886 @@
+{
+  "App": {
+    "GetApplicationApiUsage": {
+      "method": "GET",
+      "endpoint": "/App/ApiUsage/%s/",
+      "parameters": [
+        "applicationId"
+      ]
+    },
+    "GetBungieApplications": {
+      "method": "GET",
+      "endpoint": "/App/FirstParty/"
+    }
+  },
+  "User": {
+    "GetBungieNetUserById": {
+      "method": "GET",
+      "endpoint": "/User/GetBungieNetUserById/%s/",
+      "parameters": [
+        "id"
+      ]
+    },
+    "GetCredentialTypesForTargetAccount": {
+      "method": "GET",
+      "endpoint": "/User/GetCredentialTypesForTargetAccount/%s/",
+      "parameters": [
+        "membershipId"
+      ]
+    },
+    "GetAvailableThemes": {
+      "method": "GET",
+      "endpoint": "/User/GetAvailableThemes/"
+    },
+    "GetMembershipDataById": {
+      "method": "GET",
+      "endpoint": "/User/GetMembershipsById/%s/%s/",
+      "parameters": [
+        "membershipId",
+        "membershipType"
+      ]
+    },
+    "GetMembershipDataForCurrentUser": {
+      "method": "GET",
+      "endpoint": "/User/GetMembershipsForCurrentUser/"
+    },
+    "GetMembershipFromHardLinkedCredential": {
+      "method": "GET",
+      "endpoint": "/User/GetMembershipFromHardLinkedCredential/%s/%s/",
+      "parameters": [
+        "crType",
+        "credential"
+      ]
+    },
+    "SearchByGlobalNamePrefix": {
+      "method": "GET",
+      "endpoint": "/User/Search/Prefix/%s/%s/",
+      "parameters": [
+        "displayNamePrefix",
+        "page"
+      ]
+    }
+  },
+  "Content": {
+    "GetContentType": {
+      "method": "GET",
+      "endpoint": "/Content/GetContentType/%s/",
+      "parameters": [
+        "type"
+      ]
+    },
+    "GetContentById": {
+      "method": "GET",
+      "endpoint": "/Content/GetContentById/%s/%s/",
+      "parameters": [
+        "id",
+        "locale"
+      ]
+    },
+    "GetContentByTagAndType": {
+      "method": "GET",
+      "endpoint": "/Content/GetContentByTagAndType/%s/%s/%s/",
+      "parameters": [
+        "tag",
+        "type",
+        "locale"
+      ]
+    },
+    "SearchContentWithText": {
+      "method": "GET",
+      "endpoint": "/Content/Search/%s/",
+      "parameters": [
+        "locale"
+      ]
+    },
+    "SearchContentByTagAndType": {
+      "method": "GET",
+      "endpoint": "/Content/SearchContentByTagAndType/%s/%s/%s/",
+      "parameters": [
+        "tag",
+        "type",
+        "locale"
+      ]
+    },
+    "SearchHelpArticles": {
+      "method": "GET",
+      "endpoint": "/Content/SearchHelpArticles/%s/%s/",
+      "parameters": [
+        "searchtext",
+        "size"
+      ]
+    }
+  },
+  "Forum": {
+    "GetTopicsPaged": {
+      "method": "GET",
+      "endpoint": "/Forum/GetTopicsPaged/%s/%s/%s/%s/%s/%s/",
+      "parameters": [
+        "page",
+        "pageSize",
+        "group",
+        "sort",
+        "quickDate",
+        "categoryFilter"
+      ]
+    },
+    "GetCoreTopicsPaged": {
+      "method": "GET",
+      "endpoint": "/Forum/GetCoreTopicsPaged/%s/%s/%s/%s/",
+      "parameters": [
+        "page",
+        "sort",
+        "quickDate",
+        "categoryFilter"
+      ]
+    },
+    "GetPostsThreadedPaged": {
+      "method": "GET",
+      "endpoint": "/Forum/GetPostsThreadedPaged/%s/%s/%s/%s/%s/%s/%s/",
+      "parameters": [
+        "parentPostId",
+        "page",
+        "pageSize",
+        "replySize",
+        "getParentPost",
+        "rootThreadMode",
+        "sortMode"
+      ]
+    },
+    "GetPostsThreadedPagedFromChild": {
+      "method": "GET",
+      "endpoint": "/Forum/GetPostsThreadedPagedFromChild/%s/%s/%s/%s/%s/%s/",
+      "parameters": [
+        "childPostId",
+        "page",
+        "pageSize",
+        "replySize",
+        "rootThreadMode",
+        "sortMode"
+      ]
+    },
+    "GetPostAndParent": {
+      "method": "GET",
+      "endpoint": "/Forum/GetPostAndParent/%s/",
+      "parameters": [
+        "childPostId"
+      ]
+    },
+    "GetPostAndParentAwaitingApproval": {
+      "method": "GET",
+      "endpoint": "/Forum/GetPostAndParentAwaitingApproval/%s/",
+      "parameters": [
+        "childPostId"
+      ]
+    },
+    "GetTopicForContent": {
+      "method": "GET",
+      "endpoint": "/Forum/GetTopicForContent/%s/",
+      "parameters": [
+        "contentId"
+      ]
+    },
+    "GetForumTagSuggestions": {
+      "method": "GET",
+      "endpoint": "/Forum/GetForumTagSuggestions/"
+    },
+    "GetPoll": {
+      "method": "GET",
+      "endpoint": "/Forum/Poll/%s/",
+      "parameters": [
+        "topicId"
+      ]
+    },
+    "GetRecruitmentThreadSummaries": {
+      "method": "POST",
+      "endpoint": "/Forum/Recruit/Summaries/"
+    }
+  },
+  "GroupV2": {
+    "GetAvailableAvatars": {
+      "method": "GET",
+      "endpoint": "/GroupV2/GetAvailableAvatars/"
+    },
+    "GetAvailableThemes": {
+      "method": "GET",
+      "endpoint": "/GroupV2/GetAvailableThemes/"
+    },
+    "GetUserClanInviteSetting": {
+      "method": "GET",
+      "endpoint": "/GroupV2/GetUserClanInviteSetting/%s/",
+      "parameters": [
+        "mType"
+      ]
+    },
+    "GetRecommendedGroups": {
+      "method": "POST",
+      "endpoint": "/GroupV2/Recommended/%s/%s/",
+      "parameters": [
+        "groupType",
+        "createDateRange"
+      ]
+    },
+    "GroupSearch": {
+      "method": "POST",
+      "endpoint": "/GroupV2/Search/"
+    },
+    "GetGroup": {
+      "method": "GET",
+      "endpoint": "/GroupV2/%s/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "GetGroupByName": {
+      "method": "GET",
+      "endpoint": "/GroupV2/Name/%s/%s/",
+      "parameters": [
+        "groupName",
+        "groupType"
+      ]
+    },
+    "GetGroupByNameV2": {
+      "method": "POST",
+      "endpoint": "/GroupV2/NameV2/"
+    },
+    "GetGroupOptionalConversations": {
+      "method": "GET",
+      "endpoint": "/GroupV2/%s/OptionalConversations/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "EditGroup": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/Edit/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "EditClanBanner": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/EditClanBanner/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "EditFounderOptions": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/EditFounderOptions/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "AddOptionalConversation": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/OptionalConversations/Add/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "EditOptionalConversation": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/OptionalConversations/Edit/%s/",
+      "parameters": [
+        "groupId",
+        "conversationId"
+      ]
+    },
+    "GetMembersOfGroup": {
+      "method": "GET",
+      "endpoint": "/GroupV2/%s/Members/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "GetAdminsAndFounderOfGroup": {
+      "method": "GET",
+      "endpoint": "/GroupV2/%s/AdminsAndFounder/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "EditGroupMembership": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/Members/%s/%s/SetMembershipType/%s/",
+      "parameters": [
+        "groupId",
+        "membershipType",
+        "membershipId",
+        "memberType"
+      ]
+    },
+    "KickMember": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/Members/%s/%s/Kick/",
+      "parameters": [
+        "groupId",
+        "membershipType",
+        "membershipId"
+      ]
+    },
+    "BanMember": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/Members/%s/%s/Ban/",
+      "parameters": [
+        "groupId",
+        "membershipType",
+        "membershipId"
+      ]
+    },
+    "UnbanMember": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/Members/%s/%s/Unban/",
+      "parameters": [
+        "groupId",
+        "membershipType",
+        "membershipId"
+      ]
+    },
+    "GetBannedMembersOfGroup": {
+      "method": "GET",
+      "endpoint": "/GroupV2/%s/Banned/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "AbdicateFoundership": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/Admin/AbdicateFoundership/%s/%s/",
+      "parameters": [
+        "groupId",
+        "membershipType",
+        "founderIdNew"
+      ]
+    },
+    "GetPendingMemberships": {
+      "method": "GET",
+      "endpoint": "/GroupV2/%s/Members/Pending/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "GetInvitedIndividuals": {
+      "method": "GET",
+      "endpoint": "/GroupV2/%s/Members/InvitedIndividuals/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "ApproveAllPending": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/Members/ApproveAll/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "DenyAllPending": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/Members/DenyAll/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "ApprovePendingForList": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/Members/ApproveList/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "ApprovePending": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/Members/Approve/%s/%s/",
+      "parameters": [
+        "groupId",
+        "membershipType",
+        "membershipId"
+      ]
+    },
+    "DenyPendingForList": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/Members/DenyList/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "GetGroupsForMember": {
+      "method": "GET",
+      "endpoint": "/GroupV2/User/%s/%s/%s/%s/",
+      "parameters": [
+        "membershipType",
+        "membershipId",
+        "filter",
+        "groupType"
+      ]
+    },
+    "RecoverGroupForFounder": {
+      "method": "GET",
+      "endpoint": "/GroupV2/Recover/%s/%s/%s/",
+      "parameters": [
+        "membershipType",
+        "membershipId",
+        "groupType"
+      ]
+    },
+    "GetPotentialGroupsForMember": {
+      "method": "GET",
+      "endpoint": "/GroupV2/User/Potential/%s/%s/%s/%s/",
+      "parameters": [
+        "membershipType",
+        "membershipId",
+        "filter",
+        "groupType"
+      ]
+    },
+    "IndividualGroupInvite": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/Members/IndividualInvite/%s/%s/",
+      "parameters": [
+        "groupId",
+        "membershipType",
+        "membershipId"
+      ]
+    },
+    "IndividualGroupInviteCancel": {
+      "method": "POST",
+      "endpoint": "/GroupV2/%s/Members/IndividualInviteCancel/%s/%s/",
+      "parameters": [
+        "groupId",
+        "membershipType",
+        "membershipId"
+      ]
+    }
+  },
+  "Tokens": {
+    "ClaimPartnerOffer": {
+      "method": "POST",
+      "endpoint": "/Tokens/Partner/ClaimOffer/"
+    },
+    "ApplyMissingPartnerOffersWithoutClaim": {
+      "method": "POST",
+      "endpoint": "/Tokens/Partner/ApplyMissingOffers/%s/%s/",
+      "parameters": [
+        "partnerApplicationId",
+        "targetBnetMembershipId"
+      ]
+    },
+    "GetPartnerOfferSkuHistory": {
+      "method": "GET",
+      "endpoint": "/Tokens/Partner/History/%s/%s/",
+      "parameters": [
+        "partnerApplicationId",
+        "targetBnetMembershipId"
+      ]
+    }
+  },
+  "Destiny2": {
+    "GetDestinyManifest": {
+      "method": "GET",
+      "endpoint": "/Destiny2/Manifest/"
+    },
+    "GetDestinyEntityDefinition": {
+      "method": "GET",
+      "endpoint": "/Destiny2/Manifest/%s/%s/",
+      "parameters": [
+        "entityType",
+        "hashIdentifier"
+      ]
+    },
+    "SearchDestinyPlayer": {
+      "method": "GET",
+      "endpoint": "/Destiny2/SearchDestinyPlayer/%s/%s/",
+      "parameters": [
+        "membershipType",
+        "displayName"
+      ]
+    },
+    "GetLinkedProfiles": {
+      "method": "GET",
+      "endpoint": "/Destiny2/%s/Profile/%s/LinkedProfiles/",
+      "parameters": [
+        "membershipType",
+        "membershipId"
+      ]
+    },
+    "GetProfile": {
+      "method": "GET",
+      "endpoint": "/Destiny2/%s/Profile/%s/",
+      "parameters": [
+        "membershipType",
+        "destinyMembershipId"
+      ]
+    },
+    "GetCharacter": {
+      "method": "GET",
+      "endpoint": "/Destiny2/%s/Profile/%s/Character/%s/",
+      "parameters": [
+        "membershipType",
+        "destinyMembershipId",
+        "characterId"
+      ]
+    },
+    "GetClanWeeklyRewardState": {
+      "method": "GET",
+      "endpoint": "/Destiny2/Clan/%s/WeeklyRewardState/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "GetClanBannerSource": {
+      "method": "GET",
+      "endpoint": "/Destiny2/Clan/ClanBannerDictionary/"
+    },
+    "GetItem": {
+      "method": "GET",
+      "endpoint": "/Destiny2/%s/Profile/%s/Item/%s/",
+      "parameters": [
+        "membershipType",
+        "destinyMembershipId",
+        "itemInstanceId"
+      ]
+    },
+    "GetVendors": {
+      "method": "GET",
+      "endpoint": "/Destiny2/%s/Profile/%s/Character/%s/Vendors/",
+      "parameters": [
+        "membershipType",
+        "destinyMembershipId",
+        "characterId"
+      ]
+    },
+    "GetVendor": {
+      "method": "GET",
+      "endpoint": "/Destiny2/%s/Profile/%s/Character/%s/Vendors/%s/",
+      "parameters": [
+        "membershipType",
+        "destinyMembershipId",
+        "characterId",
+        "vendorHash"
+      ]
+    },
+    "GetPublicVendors": {
+      "method": "GET",
+      "endpoint": "/Destiny2/Vendors/"
+    },
+    "GetCollectibleNodeDetails": {
+      "method": "GET",
+      "endpoint": "/Destiny2/%s/Profile/%s/Character/%s/Collectibles/%s/",
+      "parameters": [
+        "membershipType",
+        "destinyMembershipId",
+        "characterId",
+        "collectiblePresentationNodeHash"
+      ]
+    },
+    "TransferItem": {
+      "method": "POST",
+      "endpoint": "/Destiny2/Actions/Items/TransferItem/"
+    },
+    "PullFromPostmaster": {
+      "method": "POST",
+      "endpoint": "/Destiny2/Actions/Items/PullFromPostmaster/"
+    },
+    "EquipItem": {
+      "method": "POST",
+      "endpoint": "/Destiny2/Actions/Items/EquipItem/"
+    },
+    "EquipItems": {
+      "method": "POST",
+      "endpoint": "/Destiny2/Actions/Items/EquipItems/"
+    },
+    "SetItemLockState": {
+      "method": "POST",
+      "endpoint": "/Destiny2/Actions/Items/SetLockState/"
+    },
+    "SetQuestTrackedState": {
+      "method": "POST",
+      "endpoint": "/Destiny2/Actions/Items/SetTrackedState/"
+    },
+    "InsertSocketPlug": {
+      "method": "POST",
+      "endpoint": "/Destiny2/Actions/Items/InsertSocketPlug/"
+    },
+    "GetPostGameCarnageReport": {
+      "method": "GET",
+      "endpoint": "/Destiny2/Stats/PostGameCarnageReport/%s/",
+      "parameters": [
+        "activityId"
+      ]
+    },
+    "ReportOffensivePostGameCarnageReportPlayer": {
+      "method": "POST",
+      "endpoint": "/Destiny2/Stats/PostGameCarnageReport/%s/Report/",
+      "parameters": [
+        "activityId"
+      ]
+    },
+    "GetHistoricalStatsDefinition": {
+      "method": "GET",
+      "endpoint": "/Destiny2/Stats/Definition/"
+    },
+    "GetClanLeaderboards": {
+      "method": "GET",
+      "endpoint": "/Destiny2/Stats/Leaderboards/Clans/%s/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "GetClanAggregateStats": {
+      "method": "GET",
+      "endpoint": "/Destiny2/Stats/AggregateClanStats/%s/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "GetLeaderboards": {
+      "method": "GET",
+      "endpoint": "/Destiny2/%s/Account/%s/Stats/Leaderboards/",
+      "parameters": [
+        "membershipType",
+        "destinyMembershipId"
+      ]
+    },
+    "GetLeaderboardsForCharacter": {
+      "method": "GET",
+      "endpoint": "/Destiny2/Stats/Leaderboards/%s/%s/%s/",
+      "parameters": [
+        "membershipType",
+        "destinyMembershipId",
+        "characterId"
+      ]
+    },
+    "SearchDestinyEntities": {
+      "method": "GET",
+      "endpoint": "/Destiny2/Armory/Search/%s/%s/",
+      "parameters": [
+        "type",
+        "searchTerm"
+      ]
+    },
+    "GetHistoricalStats": {
+      "method": "GET",
+      "endpoint": "/Destiny2/%s/Account/%s/Character/%s/Stats/",
+      "parameters": [
+        "membershipType",
+        "destinyMembershipId",
+        "characterId"
+      ]
+    },
+    "GetHistoricalStatsForAccount": {
+      "method": "GET",
+      "endpoint": "/Destiny2/%s/Account/%s/Stats/",
+      "parameters": [
+        "membershipType",
+        "destinyMembershipId"
+      ]
+    },
+    "GetActivityHistory": {
+      "method": "GET",
+      "endpoint": "/Destiny2/%s/Account/%s/Character/%s/Stats/Activities/",
+      "parameters": [
+        "membershipType",
+        "destinyMembershipId",
+        "characterId"
+      ]
+    },
+    "GetUniqueWeaponHistory": {
+      "method": "GET",
+      "endpoint": "/Destiny2/%s/Account/%s/Character/%s/Stats/UniqueWeapons/",
+      "parameters": [
+        "membershipType",
+        "destinyMembershipId",
+        "characterId"
+      ]
+    },
+    "GetDestinyAggregateActivityStats": {
+      "method": "GET",
+      "endpoint": "/Destiny2/%s/Account/%s/Character/%s/Stats/AggregateActivityStats/",
+      "parameters": [
+        "membershipType",
+        "destinyMembershipId",
+        "characterId"
+      ]
+    },
+    "GetPublicMilestoneContent": {
+      "method": "GET",
+      "endpoint": "/Destiny2/Milestones/%s/Content/",
+      "parameters": [
+        "milestoneHash"
+      ]
+    },
+    "GetPublicMilestones": {
+      "method": "GET",
+      "endpoint": "/Destiny2/Milestones/"
+    },
+    "AwaInitializeRequest": {
+      "method": "POST",
+      "endpoint": "/Destiny2/Awa/Initialize/"
+    },
+    "AwaProvideAuthorizationResult": {
+      "method": "POST",
+      "endpoint": "/Destiny2/Awa/AwaProvideAuthorizationResult/"
+    },
+    "AwaGetActionToken": {
+      "method": "GET",
+      "endpoint": "/Destiny2/Awa/GetActionToken/%s/",
+      "parameters": [
+        "correlationId"
+      ]
+    }
+  },
+  "CommunityContent": {
+    "GetCommunityContent": {
+      "method": "GET",
+      "endpoint": "/CommunityContent/Get/%s/%s/%s/",
+      "parameters": [
+        "sort",
+        "mediaFilter",
+        "page"
+      ]
+    }
+  },
+  "Trending": {
+    "GetTrendingCategories": {
+      "method": "GET",
+      "endpoint": "/Trending/Categories/"
+    },
+    "GetTrendingCategory": {
+      "method": "GET",
+      "endpoint": "/Trending/Categories/%s/%s/",
+      "parameters": [
+        "categoryId",
+        "pageNumber"
+      ]
+    },
+    "GetTrendingEntryDetail": {
+      "method": "GET",
+      "endpoint": "/Trending/Details/%s/%s/",
+      "parameters": [
+        "trendingEntryType",
+        "identifier"
+      ]
+    }
+  },
+  "Fireteam": {
+    "GetActivePrivateClanFireteamCount": {
+      "method": "GET",
+      "endpoint": "/Fireteam/Clan/%s/ActiveCount/",
+      "parameters": [
+        "groupId"
+      ]
+    },
+    "GetAvailableClanFireteams": {
+      "method": "GET",
+      "endpoint": "/Fireteam/Clan/%s/Available/%s/%s/%s/%s/%s/%s/",
+      "parameters": [
+        "groupId",
+        "platform",
+        "activityType",
+        "dateRange",
+        "slotFilter",
+        "publicOnly",
+        "page"
+      ]
+    },
+    "SearchPublicAvailableClanFireteams": {
+      "method": "GET",
+      "endpoint": "/Fireteam/Search/Available/%s/%s/%s/%s/%s/",
+      "parameters": [
+        "platform",
+        "activityType",
+        "dateRange",
+        "slotFilter",
+        "page"
+      ]
+    },
+    "GetMyClanFireteams": {
+      "method": "GET",
+      "endpoint": "/Fireteam/Clan/%s/My/%s/%s/%s/",
+      "parameters": [
+        "groupId",
+        "platform",
+        "includeClosed",
+        "page"
+      ]
+    },
+    "GetClanFireteam": {
+      "method": "GET",
+      "endpoint": "/Fireteam/Clan/%s/Summary/%s/",
+      "parameters": [
+        "groupId",
+        "fireteamId"
+      ]
+    }
+  },
+  "Social": {
+    "GetFriendList": {
+      "method": "GET",
+      "endpoint": "/Social/Friends/"
+    },
+    "GetFriendRequestList": {
+      "method": "GET",
+      "endpoint": "/Social/Friends/Requests/"
+    },
+    "IssueFriendRequest": {
+      "method": "POST",
+      "endpoint": "/Social/Friends/Add/%s/",
+      "parameters": [
+        "membershipId"
+      ]
+    },
+    "AcceptFriendRequest": {
+      "method": "POST",
+      "endpoint": "/Social/Friends/Requests/Accept/%s/",
+      "parameters": [
+        "membershipId"
+      ]
+    },
+    "DeclineFriendRequest": {
+      "method": "POST",
+      "endpoint": "/Social/Friends/Requests/Decline/%s/",
+      "parameters": [
+        "membershipId"
+      ]
+    },
+    "RemoveFriend": {
+      "method": "POST",
+      "endpoint": "/Social/Friends/Remove/%s/",
+      "parameters": [
+        "membershipId"
+      ]
+    },
+    "RemoveFriendRequest": {
+      "method": "POST",
+      "endpoint": "/Social/Friends/Requests/Remove/%s/",
+      "parameters": [
+        "membershipId"
+      ]
+    },
+    "GetPlatformFriendList": {
+      "method": "GET",
+      "endpoint": "/Social/PlatformFriends/%s/%s/",
+      "parameters": [
+        "friendPlatform",
+        "page"
+      ]
+    }
+  },
+  "": {
+    "GetAvailableLocales": {
+      "method": "GET",
+      "endpoint": "/GetAvailableLocales/"
+    },
+    "GetCommonSettings": {
+      "method": "GET",
+      "endpoint": "/Settings/"
+    },
+    "GetUserSystemOverrides": {
+      "method": "GET",
+      "endpoint": "/UserSystemOverrides/"
+    },
+    "GetGlobalAlerts": {
+      "method": "GET",
+      "endpoint": "/GlobalAlerts/"
+    }
+  }
+}
