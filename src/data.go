@@ -5,7 +5,7 @@ import "time"
 type Applications struct {
 	applications []Application
 }
-	
+
 type Application struct {
 	ApplicationID  int       `json:"applicationId"`
 	Name           string    `json:"name"`

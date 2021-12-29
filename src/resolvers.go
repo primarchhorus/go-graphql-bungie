@@ -10,7 +10,7 @@ import (
 
 var config = read_config()
 
-func getFirstPartyAppList() (interface{}, error) {
+func appList() (interface{}, error) {
 	firstparty, err := httpRequest(config.API.App.GetBungieApplications.Endpoint,
 		config.API.App.GetBungieApplications.Method)
 	if err != nil {
@@ -41,7 +41,7 @@ func getFirstPartyAppList() (interface{}, error) {
 	return s, nil
 }
 
-func getFirstPartyAppById(p graphql.ResolveParams) (interface{}, error) {
+func appById(p graphql.ResolveParams) (interface{}, error) {
 	firstparty, err := httpRequest("/App/FirstParty/", "GET")
 	if err != nil {
 		log.Println(err)
@@ -75,7 +75,7 @@ func getFirstPartyAppById(p graphql.ResolveParams) (interface{}, error) {
 	return nil, nil
 }
 
-func searchUserName(p graphql.ResolveParams) (interface{}, error) {
+func searchUser(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.User.SearchByGlobalNamePrefix.Endpoint, p.Args["username"].(string), "/0")
 	// url := "/User/Search/Prefix/" + p.Args["username"].(string) + "/0"
 	fmt.Println(url)

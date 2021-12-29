@@ -744,7 +744,7 @@ type API struct {
 
 func read_config() *Configuration {
 	configuration := Configuration{}
-	err := gonfig.GetConf("bungieAPI_config.json", &configuration)
+	err := gonfig.GetConf(config_prefix+"bungieAPI_config.json", &configuration)
 	if err != nil {
 		log.Fatalln(err)
 	}
