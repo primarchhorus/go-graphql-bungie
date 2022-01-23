@@ -22,5 +22,5 @@ func start(fields graphql.Fields) {
 
 	http.Handle("/graphql", handler)
 	log.Println("Server started at http://localhost:3000/graphql")
-	log.Fatal(http.ListenAndServe("127.0.0.1:3100", nil))
+	log.Fatal(http.ListenAndServe("127.0.0.1:3000", nil))
 }

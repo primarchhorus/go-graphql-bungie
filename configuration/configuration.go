@@ -1,12 +1,23 @@
-package main
+package configuration
 
 import (
-	"errors"
 	"log"
-	"os"
 
 	"github.com/tkanos/gonfig"
 )
+
+/*
+* used for testing with authorised enpoints, have manually extracted token becuase i didnt want to deal with oauth shit, will leave this struct here to be used to hold this from a proper oauth process later.
+*
+ */
+type TempTokens struct {
+	AccessToken      string `json:"access_token"`
+	TokenType        string `json:"token_type"`
+	ExpiresIn        int    `json:"expires_in"`
+	RefreshToken     string `json:"refresh_token"`
+	RefreshExpiresIn int    `json:"refresh_expires_in"`
+	MembershipId     string `json:"membership_id"`
+}
 
 type Configuration struct {
 	BasePath string `json:"base-path"`
@@ -327,7 +338,7 @@ type IndividualGroupInviteCancel struct {
 	Endpoint   string   `json:"endpoint"`
 	Parameters []string `json:"parameters"`
 }
-type GroupV2 struct {
+type GetGroupV2 struct {
 	GetAvailableAvatars           GetAvailableAvatars           `json:"GetAvailableAvatars"`
 	GetAvailableThemes            GetAvailableThemes            `json:"GetAvailableThemes"`
 	GetUserClanInviteSetting      GetUserClanInviteSetting      `json:"GetUserClanInviteSetting"`
@@ -732,7 +743,7 @@ type API struct {
 	User             User             `json:"User"`
 	Content          Content          `json:"Content"`
 	Forum            Forum            `json:"Forum"`
-	GroupV2          GroupV2          `json:"GroupV2"`
+	GroupV2          GetGroupV2       `json:"GroupV2"`
 	Tokens           Tokens           `json:"Tokens"`
 	Destiny2         Destiny2         `json:"Destiny2"`
 	CommunityContent CommunityContent `json:"CommunityContent"`
@@ -742,20 +753,13 @@ type API struct {
 	Null             Null             `json:"null"`
 }
 
-func read_config() *Configuration {
+var BasePath = "https://www.bungie.net/Platform"
+
+func ReadConfig() *Configuration {
 	configuration := Configuration{}
-	err := gonfig.GetConf(config_prefix+"bungieAPI_config.json", &configuration)
+	err := gonfig.GetConf("configuration/bungieAPI_config.json", &configuration)
 	if err != nil {
 		log.Fatalln(err)
 	}
 	return &configuration
-}
-
-func getApiKey() string {
-	xApiKey := os.Getenv("X_API_KEY")
-	if len(xApiKey) == 0 {
-		err := errors.New("X_API_KEY environment variable empty")
-		log.Fatalln(err)
-	}
-	return xApiKey
 }
