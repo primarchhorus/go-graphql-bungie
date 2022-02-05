@@ -14,7 +14,7 @@ func base_resolver(p graphql.ResolveParams, url string, method string, ret inter
 	if err != nil {
 		log.Println(err)
 	}
-	log.Printf(request)
+
 	var dat map[string]interface{}
 	json.Unmarshal([]byte(request), &dat)
 

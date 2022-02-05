@@ -495,7 +495,10 @@ def gen_resolver_function(resolver, arguments, func_name, config_name, return_ty
     # if return_type == "nil":
     #     go_type
     return_val = go_type.replace("schema.", "data.")
-    resolver += f"    var return_val {return_val}\n"
+    if array:
+        resolver += f"    var return_val []{return_val}\n"
+    else:
+        resolver += f"    var return_val {return_val}\n"
     if config_name.split(".")[0]:
         resolver += f"    ret, err := base_resolver(p, url, configuration.API.{config_name}.Method, &return_val)\n"
     else:

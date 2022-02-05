@@ -22,7 +22,7 @@ func GetApplicationApiUsage(p graphql.ResolveParams) (interface{}, error) {
 }
 func GetBungieApplications(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.App.GetBungieApplications.Endpoint)
-	var return_val data.Application
+	var return_val []data.Application
 	ret, err := base_resolver(p, url, config.API.App.GetBungieApplications.Method, &return_val)
 	if err != nil {
 		log.Println(err)
@@ -40,16 +40,16 @@ func GetBungieNetUserById(p graphql.ResolveParams) (interface{}, error) {
 }
 func GetCredentialTypesForTargetAccount(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.User.GetCredentialTypesForTargetAccount.Endpoint, p.Args["membershipId"].(string))
-	var return_val data.GetCredentialTypesForAccountResponse
+	var return_val []data.GetCredentialTypesForAccountResponse
 	ret, err := base_resolver(p, url, config.API.User.GetCredentialTypesForTargetAccount.Method, &return_val)
 	if err != nil {
 		log.Println(err)
 	}
 	return ret, nil
 }
-func GetAvailableThemes(p graphql.ResolveParams) (interface{}, error) {
+func GetAvailableThemesUser(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.User.GetAvailableThemes.Endpoint)
-	var return_val data.UserTheme
+	var return_val []data.UserTheme
 	ret, err := base_resolver(p, url, config.API.User.GetAvailableThemes.Method, &return_val)
 	if err != nil {
 		log.Println(err)
@@ -211,7 +211,7 @@ func GetTopicForContent(p graphql.ResolveParams) (interface{}, error) {
 }
 func GetForumTagSuggestions(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.Forum.GetForumTagSuggestions.Endpoint)
-	var return_val data.TagResponse
+	var return_val []data.TagResponse
 	ret, err := base_resolver(p, url, config.API.Forum.GetForumTagSuggestions.Method, &return_val)
 	if err != nil {
 		log.Println(err)
@@ -229,7 +229,7 @@ func GetPoll(p graphql.ResolveParams) (interface{}, error) {
 }
 func GetRecruitmentThreadSummaries(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.Forum.GetRecruitmentThreadSummaries.Endpoint)
-	var return_val data.ForumRecruitmentDetail
+	var return_val []data.ForumRecruitmentDetail
 	ret, err := base_resolver(p, url, config.API.Forum.GetRecruitmentThreadSummaries.Method, &return_val)
 	if err != nil {
 		log.Println(err)
@@ -245,16 +245,15 @@ func GetAvailableAvatars(p graphql.ResolveParams) (interface{}, error) {
 	}
 	return ret, nil
 }
-
-// func GetAvailableThemes(p graphql.ResolveParams) (interface{}, error) {
-//     url := fmt.Sprintf(config.API.GroupV2.GetAvailableThemes.Endpoint)
-//     var return_val data.GroupTheme
-//     ret, err := base_resolver(p, url, config.API.GroupV2.GetAvailableThemes.Method, &return_val)
-//     if err != nil {
-//         log.Println(err)
-//     }
-//     return ret, nil
-// }
+func GetAvailableThemesGroupV2(p graphql.ResolveParams) (interface{}, error) {
+	url := fmt.Sprintf(config.API.GroupV2.GetAvailableThemes.Endpoint)
+	var return_val []data.GroupTheme
+	ret, err := base_resolver(p, url, config.API.GroupV2.GetAvailableThemes.Method, &return_val)
+	if err != nil {
+		log.Println(err)
+	}
+	return ret, nil
+}
 func GetUserClanInviteSetting(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.GroupV2.GetUserClanInviteSetting.Endpoint, p.Args["mType"].(string))
 	var return_val bool
@@ -266,7 +265,7 @@ func GetUserClanInviteSetting(p graphql.ResolveParams) (interface{}, error) {
 }
 func GetRecommendedGroups(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.GroupV2.GetRecommendedGroups.Endpoint, p.Args["groupType"].(string), p.Args["createDateRange"].(string))
-	var return_val data.GroupV2Card
+	var return_val []data.GroupV2Card
 	ret, err := base_resolver(p, url, config.API.GroupV2.GetRecommendedGroups.Method, &return_val)
 	if err != nil {
 		log.Println(err)
@@ -311,7 +310,7 @@ func GetGroupByNameV2(p graphql.ResolveParams) (interface{}, error) {
 }
 func GetGroupOptionalConversations(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.GroupV2.GetGroupOptionalConversations.Endpoint, p.Args["groupId"].(string))
-	var return_val data.GroupOptionalConversation
+	var return_val []data.GroupOptionalConversation
 	ret, err := base_resolver(p, url, config.API.GroupV2.GetGroupOptionalConversations.Method, &return_val)
 	if err != nil {
 		log.Println(err)
@@ -455,7 +454,7 @@ func GetInvitedIndividuals(p graphql.ResolveParams) (interface{}, error) {
 }
 func ApproveAllPending(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.GroupV2.ApproveAllPending.Endpoint, p.Args["groupId"].(string))
-	var return_val data.EntityActionResult
+	var return_val []data.EntityActionResult
 	ret, err := base_resolver(p, url, config.API.GroupV2.ApproveAllPending.Method, &return_val)
 	if err != nil {
 		log.Println(err)
@@ -464,7 +463,7 @@ func ApproveAllPending(p graphql.ResolveParams) (interface{}, error) {
 }
 func DenyAllPending(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.GroupV2.DenyAllPending.Endpoint, p.Args["groupId"].(string))
-	var return_val data.EntityActionResult
+	var return_val []data.EntityActionResult
 	ret, err := base_resolver(p, url, config.API.GroupV2.DenyAllPending.Method, &return_val)
 	if err != nil {
 		log.Println(err)
@@ -473,7 +472,7 @@ func DenyAllPending(p graphql.ResolveParams) (interface{}, error) {
 }
 func ApprovePendingForList(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.GroupV2.ApprovePendingForList.Endpoint, p.Args["groupId"].(string))
-	var return_val data.EntityActionResult
+	var return_val []data.EntityActionResult
 	ret, err := base_resolver(p, url, config.API.GroupV2.ApprovePendingForList.Method, &return_val)
 	if err != nil {
 		log.Println(err)
@@ -491,7 +490,7 @@ func ApprovePending(p graphql.ResolveParams) (interface{}, error) {
 }
 func DenyPendingForList(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.GroupV2.DenyPendingForList.Endpoint, p.Args["groupId"].(string))
-	var return_val data.EntityActionResult
+	var return_val []data.EntityActionResult
 	ret, err := base_resolver(p, url, config.API.GroupV2.DenyPendingForList.Method, &return_val)
 	if err != nil {
 		log.Println(err)
@@ -563,7 +562,7 @@ func ApplyMissingPartnerOffersWithoutClaim(p graphql.ResolveParams) (interface{}
 }
 func GetPartnerOfferSkuHistory(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.Tokens.GetPartnerOfferSkuHistory.Endpoint, p.Args["partnerApplicationId"].(string), p.Args["targetBnetMembershipId"].(string))
-	var return_val data.PartnerOfferSkuHistoryResponse
+	var return_val []data.PartnerOfferSkuHistoryResponse
 	ret, err := base_resolver(p, url, config.API.Tokens.GetPartnerOfferSkuHistory.Method, &return_val)
 	if err != nil {
 		log.Println(err)
@@ -590,7 +589,7 @@ func GetDestinyEntityDefinition(p graphql.ResolveParams) (interface{}, error) {
 }
 func SearchDestinyPlayer(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.Destiny2.SearchDestinyPlayer.Endpoint, p.Args["membershipType"].(string), p.Args["displayName"].(string))
-	var return_val data.UserInfoCard
+	var return_val []data.UserInfoCard
 	ret, err := base_resolver(p, url, config.API.Destiny2.SearchDestinyPlayer.Method, &return_val)
 	if err != nil {
 		log.Println(err)
@@ -788,7 +787,7 @@ func GetClanLeaderboards(p graphql.ResolveParams) (interface{}, error) {
 }
 func GetClanAggregateStats(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.Destiny2.GetClanAggregateStats.Endpoint, p.Args["groupId"].(string))
-	var return_val data.DestinyClanAggregateStat
+	var return_val []data.DestinyClanAggregateStat
 	ret, err := base_resolver(p, url, config.API.Destiny2.GetClanAggregateStats.Method, &return_val)
 	if err != nil {
 		log.Println(err)
@@ -1094,7 +1093,7 @@ func GetUserSystemOverrides(p graphql.ResolveParams) (interface{}, error) {
 }
 func GetGlobalAlerts(p graphql.ResolveParams) (interface{}, error) {
 	url := fmt.Sprintf(config.API.Null.GetGlobalAlerts.Endpoint)
-	var return_val data.GlobalAlert
+	var return_val []data.GlobalAlert
 	ret, err := base_resolver(p, url, config.API.Null.GetGlobalAlerts.Method, &return_val)
 	if err != nil {
 		log.Println(err)

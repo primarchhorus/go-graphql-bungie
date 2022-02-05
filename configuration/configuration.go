@@ -763,3 +763,12 @@ func ReadConfig() *Configuration {
 	}
 	return &configuration
 }
+
+func ReadTempTokens() *TempTokens {
+	temp := TempTokens{}
+	err := gonfig.GetConf("configuration/temp_tokens.json", &temp)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	return &temp
+}

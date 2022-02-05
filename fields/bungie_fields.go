@@ -51,10 +51,10 @@ var (
 			},
 		},
 
-		"getavailablethemes": &graphql.Field{
+		"getavailablethemesuser": &graphql.Field{
 			Type: graphql.NewList(schema.UserTheme),
 			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
-				return resolvers.GetAvailableThemes(p)
+				return resolvers.GetAvailableThemesUser(p)
 			},
 		},
 

@@ -38,6 +38,7 @@ func HttpRequest(endpoint string, method string) (string, error) {
 
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("X-API-Key", key)
+	req.Header.Set("Authorization", "Bearer "+configuration.ReadTempTokens().AccessToken)
 
 	res, err := client.Do(req)
 	if err != nil {
