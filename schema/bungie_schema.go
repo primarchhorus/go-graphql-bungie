@@ -249,7 +249,7 @@ var GeneralUser = graphql.NewObject(
 		Name: "GeneralUser",
 		Fields: graphql.Fields{
 			"MembershipId": &graphql.Field{
-				Type: graphql.Int,
+				Type: graphql.String,
 			},
 			"UniqueName": &graphql.Field{
 				Type: graphql.String,
@@ -270,7 +270,7 @@ var GeneralUser = graphql.NewObject(
 				Type: graphql.Int,
 			},
 			"SuccessMessageFlags": &graphql.Field{
-				Type: graphql.Int,
+				Type: graphql.String,
 			},
 			"IsDeleted": &graphql.Field{
 				Type: graphql.Boolean,

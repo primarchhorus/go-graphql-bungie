@@ -28,11 +28,16 @@ func getApiKey() string {
 	return xApiKey
 }
 
+type error interface {
+	Error() string
+}
+
 func HttpRequest(endpoint string, method string) (string, error) {
 
 	url := configuration.BasePath + endpoint
 	req, err := http.NewRequest(method, url, nil)
 	if err != nil {
+		log.Println(err)
 		return "", err
 	}
 
@@ -41,11 +46,17 @@ func HttpRequest(endpoint string, method string) (string, error) {
 	req.Header.Set("Authorization", "Bearer "+configuration.ReadTempTokens().AccessToken)
 
 	res, err := client.Do(req)
+	if res.StatusCode != 200 {
+		log.Println(res.Status)
+		return "", errors.New(res.Status)
+	}
 	if err != nil {
+		log.Println(err)
 		return "", err
 	}
 	body1, err := ioutil.ReadAll(res.Body)
 	if err != nil {
+		log.Println(err)
 		return "", err
 	}
 	sb1 := string(body1)

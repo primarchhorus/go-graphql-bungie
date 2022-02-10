@@ -71,6 +71,7 @@ func GetMembershipDataForCurrentUser(p graphql.ResolveParams) (interface{}, erro
 	ret, err := base_resolver(p, url, config.API.User.GetMembershipDataForCurrentUser.Method, &return_val)
 	if err != nil {
 		log.Println(err)
+		return nil, err
 	}
 	return ret, nil
 }
